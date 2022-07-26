@@ -1,0 +1,129 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="D:\EEBM-7v87\capstone\ML_API.prj" location="D:\EEBM-7v87\capstone" name="ML_API" target="target.ezdeploy.mps.archive" target-name="Production Server Compiler">
+    <param.appname>ML_API</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>1.0</param.version>
+    <param.intermediate>${PROJECT_ROOT}\ML_API\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\ML_API\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\ML_API\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\ML_API</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.server.ctf>${PROJECT_ROOT}\ML_API\for_testing\server\ML_API.ctf</param.server.ctf>
+    <param.server.readme>${PROJECT_ROOT}\ML_API\for_testing\server\readme.txt</param.server.readme>
+    <param.target.type>subtarget.mads</param.target.type>
+    <param.support.packages />
+    <param.required.mcr.products />
+    <param.discovery.file>${PROJECT_ROOT}\ML_APIFunctionSignatures.json</param.discovery.file>
+    <param.classorg />
+    <param.function.data />
+    <param.user.only.registration>false</param.user.only.registration>
+    <param.mps.server.dir>server</param.mps.server.dir>
+    <param.mps.client.dir>client</param.mps.client.dir>
+    <param.time.out>60</param.time.out>
+    <param.max.size>750</param.max.size>
+    <param.certificate.file />
+    <param.mads.server.configuration />
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.version />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.server.ctf />
+      <param.server.readme />
+      <param.target.type />
+      <param.support.packages />
+      <param.required.mcr.products />
+      <param.classorg />
+      <param.function.data />
+      <param.user.only.registration />
+      <param.mps.server.dir />
+      <param.mps.client.dir />
+      <param.time.out />
+      <param.max.size />
+      <param.certificate.file />
+      <param.mads.server.configuration />
+    </unset>
+    <fileset.exports>
+      <file>${PROJECT_ROOT}\shell_run.m</file>
+    </fileset.exports>
+    <fileset.classes>
+      <entity.package name="">
+        <entity.class name="Class1">
+          <file>${PROJECT_ROOT}\shell_run.m</file>
+        </entity.class>
+      </entity.package>
+    </fileset.classes>
+    <fileset.resources />
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\model.mat</file>
+    </fileset.depfun>
+    <fileset.package />
+    <fileset.package.server>
+      <file>${PROJECT_ROOT}\ML_API\for_testing\server\ML_API.ctf</file>
+      <file>${PROJECT_ROOT}\ML_API\for_testing\server\readme.txt</file>
+    </fileset.package.server>
+    <fileset.package.client />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\ML_API\for_testing" name="ML_API.ctf" optional="false">D:\EEBM-7v87\capstone\ML_API\for_testing\ML_API.ctf</file>
+      <file location="${PROJECT_ROOT}\ML_API\for_testing" name="readme.txt" optional="true">D:\EEBM-7v87\capstone\ML_API\for_testing\readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2022a</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

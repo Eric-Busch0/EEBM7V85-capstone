@@ -1,0 +1,30 @@
+// Function Signatures
+// To optionally specify argument types and/or sizes, search for "type"
+// and insert the appropriate specifiers inside the brackets. For example:
+//
+//    "type": ["double", "size=1,1"]
+//
+// To modify function or parameter help text, search for "purpose" and edit
+// the values.
+//
+// JSON-formatted text below this line.
+{
+    "_schemaVersion": "1.1.0",
+    "shell_run": {
+        "inputs": [
+            {
+                "name": "data",
+                "type": [],
+                "purpose": ""
+            }
+        ],
+        "outputs": [
+            {
+                "name": "a",
+                "type": [],
+                "purpose": ""
+            }
+        ],
+        "purpose": ""
+    }
+}
