@@ -14,8 +14,9 @@ y_train = scipy.io.loadmat('ytrain.mat')['y_train']
 
 x_test = np.multiply(x_test, [100]).astype(int)
 
-print(x_train)
-
+# print(x_train)
+print(len(y_train))
+print(len(y_test))
 
 
 clf = svm.SVC()

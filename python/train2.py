@@ -1,4 +1,3 @@
-
 import requests
 import scipy.io
 import numpy as np
@@ -8,11 +7,20 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from ecgdetectors import Detectors
 import pickle
+from tkinter import Y
+import scipy.io
+from sklearn import svm
+from itertools import chain
+import numpy as np
+import pickle
 
 fs = 360
 ts = 1 / 360
 detectors = Detectors(fs)
 ENDPOINT = "http://127.0.0.1:5000"
+
+y_test = scipy.io.loadmat('ytest.mat')['y_test']
+y_train = scipy.io.loadmat('ytrain.mat')['y_train']
 
 
 
@@ -20,14 +28,14 @@ ecg = scipy.io.loadmat('100m.mat')['val']
 
 a = 0
 b = 255
-print(len(ecg[0]))
 length = len(ecg[0])
 lower = min(ecg[0])
 upper = max(ecg[0])
 
 for i in range(length):
     ecg[0][i] = (b - a) * (ecg[0][i] -lower) / (upper - lower) + a
-    
+with open('ecg.npy', 'wb') as f:
+    np.save(f, ecg)    
 
 # print(ecg[0])
 # print(max(ecg[0]))
@@ -43,32 +51,25 @@ second_half = np.multiply(np.array(ts), second_half)
 
 pre_rr = np.subtract(first_half, second_half)
 post_rr = pre_rr[2:-1]
-print(post_rr)
 
 post_rr = np.append(post_rr, [pre_rr[-2], pre_rr[-1] ])
 modelData = []
 for i in range(len(post_rr)):
     modelData.append([int(pre_rr[i] * 100), int(post_rr[i] * 100)])
-    
-
-# print(modelData)
-# filename = 'ecg_svm'
-# model = pickle.load(open(filename, 'rb'))
-# modelData = np.array(modelData)
-# ans = model.predict(modelData)
-# print(modelData)
-# x_test = scipy.io.loadmat('xtest.mat')['x_test'].astype(int)
 
     
-# ans = model.predict(modelData)
-# print(ans)
+        
+print(len(modelData))
+x_train = modelData[0:1798]
+x_test = modelData[1798:]
+print(len(x_test))
+clf = svm.SVC()
+clf.fit(x_train, y_train.ravel())
 
-# x_test = scipy.io.loadmat('xtest.mat')['x_test'].astype(int)
-# data0 = np.transpose(x_test)[0].tolist()
-# data1 = np.transpose(x_test)[1].tolist()
-# json_str = json.dumps({'data' :ecg.tolist()})
-# resp = requests.post(ENDPOINT, json=json_str)
-# if resp.status_code == 200:
-#     print(resp.content)
-# else:
-#     print(resp.status_code)
+ret = clf.score(x_test,y_test[:471])
+
+print("Accuracy: "  + str(ret * 100) + "%")
+
+filename = 'ecg_svm2'
+pickle.dump(clf, open(filename, 'wb'))
+

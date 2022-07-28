@@ -16,7 +16,8 @@
 BluetoothSerial SerialBT;
 
 
-uint8_t arr[512] = {0};
+//uint8_t arr[512] = {0};
+int arr[512] = {0};
 void setup() {
   Serial.begin(9600);
   SerialBT.begin("ESP32test"); //Bluetooth device name
@@ -28,6 +29,20 @@ void setup() {
 void loop() {
 
   bool sent = false;
+//
+//  if(Serial.available() > 0)
+//  {
+//    int i = 0;
+//    while(Serial.available())
+//    {
+//      arr[i] = Serial.parseInt();
+//      i++;   
+//      
+//    }
+//    int bytesWritten = SerialBT.write(arr, (size_t)i * sizeof(int)); 
+//    Serial.print(bytesWritten);
+//  }
+
   if(Serial.available() > 0)
   {
     
@@ -36,8 +51,7 @@ void loop() {
     int bytesWritten = SerialBT.write(arr, numBytes);
 
     Serial.print(bytesWritten);
-
-  }
+ }
 
 
 

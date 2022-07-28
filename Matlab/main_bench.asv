@@ -3,7 +3,7 @@ clear all
 close all
 record = load('100m.mat')
 data = record.val(1,:);
-data = data + min(data)
+min()
 plot(data(1:1800))
 % 
 % 
