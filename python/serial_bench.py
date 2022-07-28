@@ -1,18 +1,16 @@
-import requests
-import scipy.io
+
 import numpy as np
-import json
+
 from json import JSONEncoder
 import matplotlib.pyplot as plt
 import pandas as pd
-from ecgdetectors import Detectors
-import pickle
+
 from tkinter import Y
 import scipy.io
 from sklearn import svm
 from itertools import chain
 import numpy as np
-import pickle
+
 
 import serial
 
